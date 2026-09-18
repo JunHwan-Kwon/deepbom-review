@@ -76,6 +76,9 @@ test('missing measurements hold, quality regression rejects, unit/context mismat
   after.metrics.accuracy.value=.95;after.metrics.latency.unit='seconds';
   const evaluate=()=>decide({policy,baseline,candidate,baselineEvaluation:before,candidateEvaluation:after});
   assert.equal(evaluate().status,'hold');
+  after.metrics.latency.unit='ms';after.metrics.accuracy.value=.94;assert.equal(evaluate().status,'accept','inclusive decimal regression boundary');
+  after.metrics.accuracy.value=.939999;assert.equal(evaluate().status,'reject','a real threshold violation is not rounded away');
+  after.metrics.accuracy.value=.95;
   after.metrics.latency.unit='ms';after.contexts.dataset.sha256='0'.repeat(64);assert.equal(evaluate().status,'hold');
   after.contexts.dataset.sha256=before.contexts.dataset.sha256;after.artifact_sha256='0'.repeat(64);assert.equal(evaluate().status,'hold');
   after.artifact_sha256=candidate.identity.sha256;delete after.metrics.accuracy;assert.equal(evaluate().status,'hold');
