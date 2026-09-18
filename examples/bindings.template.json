@@ -1,0 +1,13 @@
+{
+  "schema": "deepbom.review.bindings.v1",
+  "producer_statement": "these_files_were_used_for_this_evaluation",
+  "artifact": { "path": "candidate.onnx", "sha256": "REPLACE_WITH_MEASURED_MODEL_SHA256" },
+  "dataset": { "path": "dataset-manifest.json", "sha256": "REPLACE_WITH_DATASET_MANIFEST_SHA256" },
+  "evaluator": { "path": "evaluate.py", "sha256": "REPLACE_WITH_EVALUATOR_SHA256" },
+  "environment": { "path": "environment.json", "sha256": "REPLACE_WITH_ENVIRONMENT_SHA256" },
+  "olive_rank": 1,
+  "metrics": {
+    "accuracy": { "key": "accuracy-accuracy", "unit": "fraction" },
+    "latency": { "key": "latency-avg", "unit": "ms" }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "deepbom-review",
+  "version": "0.1.0",
+  "description": "Local, hash-bound model candidate review with DEEPBOM, Olive and MLflow evidence",
+  "type": "module",
+  "license": "Apache-2.0",
+  "engines": { "node": ">=20" },
+  "bin": { "deepbom-review": "bin/deepbom-review.mjs" },
+  "files": ["bin", "lib", "examples", "adapters", "README.md", "LICENSE"],
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "package": "node scripts/package.mjs"
+  },
+  "dependencies": { "adm-zip": "0.6.1", "deepbom": "1.103.0" },
+  "repository": { "type": "git", "url": "https://github.com/JunHwan-Kwon/deepbom-review.git" }
+}

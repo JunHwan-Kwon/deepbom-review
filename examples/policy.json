@@ -1,0 +1,10 @@
+{
+  "schema": "deepbom.review.policy.v1",
+  "id": "example-quality-latency-v1",
+  "preserve_interfaces": true,
+  "required_capabilities": ["tensor_payloads"],
+  "metrics": [
+    { "name": "accuracy", "unit": "fraction", "direction": "higher", "threshold": 0.90, "max_regression": 0.01 },
+    { "name": "latency", "unit": "ms", "direction": "lower", "threshold": 20, "max_regression": 0 }
+  ]
+}

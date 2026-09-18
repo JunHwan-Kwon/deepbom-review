@@ -1,0 +1,10 @@
+# Validation scope — 0.1.0 preview
+
+- Node test suite uses the published DEEPBOM 1.103.0 engine for actual ONNX and TFLite audits/diffs. It checks acceptance, rejection and hold, interface changes, required coverage, context/unit mismatch, missing measurements, malformed models, exact file pins, no-clobber writes, ZIP corruption and decision recomputation.
+- MCP protocol tests initialize both servers, list tools, audit a model, create and verify a review bundle, and check write annotations and workspace boundaries. Symlinks, indirect file references and paths with spaces/platform separators are covered.
+- `test/integration_mlflow.py` runs real ONNX Runtime inference on two original tiny models and four synthetic examples. It logs actual measurements and hashes to a local MLflow store, exports completed runs, imports receipts and verifies the review bundle. Tested versions: MLflow 3.16.1 and ONNX Runtime 1.30.0. This demonstrates evidence transport, not meaningful task performance or optimization benefit.
+- Olive's documented `models_rank.json` format is covered by importer fixtures, explicit rank/path/hash selection, and metric mappings. A complete Olive optimization workflow has not been executed in this release validation.
+- GitHub Copilot CLI 1.0.86 configuration recognition is checked in an isolated configuration directory. The same emitted stdio commands are exercised by protocol tests. A signed-in natural-language Copilot session and the VS Code GUI are not part of automated validation; organization settings and host permissions can affect availability.
+- Release CI runs Node tests and bundled-distribution checks on Linux, macOS and Windows. Python integration runs on Linux. Check the [workflow results](https://github.com/JunHwan-Kwon/deepbom-review/actions) for the release commit rather than assuming all host environments are covered.
+
+The preview does not establish evaluation authenticity, model accuracy beyond supplied measurements, production readiness, clinical validity or regulatory compliance. It does not supply a candidate generator, benchmark service, immutable policy approval service or training loop.

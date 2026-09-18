@@ -1,0 +1,6 @@
+node_modules/
+dist/
+.validation/
+.validation-venv/
+*.tgz
+__pycache__/
